@@ -1,0 +1,25 @@
+{
+  "name": "teste-sofit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielSBorges/teste-sofit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielSBorges/teste-sofit/issues"
+  },
+  "homepage": "https://github.com/gabrielSBorges/teste-sofit#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv-safe": "^8.2.0",
+    "moment": "^2.29.1"
+  }
+}
