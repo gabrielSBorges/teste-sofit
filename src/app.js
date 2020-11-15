@@ -18,14 +18,14 @@ Promise.all([buscaPrecos(), buscaAbastecimentos(), buscaKmPercorridos()])
     const precoDoCombustivel = precos.find(price => price.date == dia);
     
     if (precoDoCombustivel) {
-      valorAtualCombustivel = precoDoCombustivel.value;
+      valorAtualCombustivel = formataValor(precoDoCombustivel.value);
     }
     
-    const valorDoAbastecimento = defineValor(abastecimentos, dia);
-    const kmPercorrido = defineValor(quilometrosPercorridos, dia);
+    const valorDoAbastecimento = formataValor(defineValor(abastecimentos, dia));
+    const kmPercorrido = formataValor(defineValor(quilometrosPercorridos, dia));
 
-    const totalAbastecido = valorDoAbastecimento / valorAtualCombustivel;
-    const totalGasto = kmPercorrido / consumoEstimado;
+    const totalAbastecido = formataValor(valorDoAbastecimento / valorAtualCombustivel);
+    const totalGasto = formataValor(kmPercorrido / consumoEstimado);
     
     saldo = formataValor(saldo + totalAbastecido - totalGasto);
 
@@ -35,9 +35,9 @@ Promise.all([buscaPrecos(), buscaAbastecimentos(), buscaKmPercorridos()])
     }
   })
 
-  console.log();
-
   const resultado = await enviaDados(saldos);
 
-  console.log(resultado)
+  console.log("---------------------");
+  console.log(`${formataValor(resultado.hit * 100)}%`)
+  console.log("---------------------");
 })
